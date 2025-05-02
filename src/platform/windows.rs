@@ -1605,14 +1605,12 @@ fn get_reg_of(subkey: &str, name: &str) -> String {
 }
 
 pub fn get_license_from_exe_name() -> ResultType<CustomServer> {
-    let mut exe = std::env::current_exe()?.to_str().unwrap_or("").to_owned();
-    // if defined portable appname entry, replace original executable name with it.
-    if let Ok(portable_exe) = std::env::var(PORTABLE_APPNAME_RUNTIME_ENV_KEY) {
-        exe = portable_exe;
-    }
-    get_custom_server_from_string(&exe)
+    Ok(CustomServer {
+        host: "support.assistit.org".to_string(),
+        relay: "support.assistit.org".to_string(),
+        ..Default::default()
+    })
 }
-
 pub fn check_update_printer_option() {
     if !is_installed() {
         return;
