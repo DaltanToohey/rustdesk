@@ -1,0 +1,8 @@
+[branding]
+name = "Assist IT Remote Support"
+logo = "logo.png"
+
+[config]
+id_server = "support.assistit.org"
+relay_server = "support.assistit.org"
+api_server = ""
